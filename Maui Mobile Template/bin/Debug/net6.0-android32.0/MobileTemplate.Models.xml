@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MobileTemplate.Models</name>
+    </assembly>
+    <members>
+        <member name="T:MobileTemplate.Models.SynchronizationItem">
+            <summary>
+            Synchronization state item
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.Models.User">
+            <summary>
+            User details
+            </summary>
+        </member>
+    </members>
+</doc>

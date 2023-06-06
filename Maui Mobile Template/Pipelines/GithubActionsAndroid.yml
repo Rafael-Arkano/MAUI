@@ -1,0 +1,42 @@
+﻿name: Deploy to App Center
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '6.x'
+
+    - name: Restore NuGet packages
+      run: dotnet restore path/to/your/solution.sln
+
+    - name: Build Android project
+      run: dotnet build path/to/your/android.csproj --configuration Release
+
+    - name: Publish Android artifact
+      run: dotnet publish path/to/your/android.csproj --configuration Release --output $(github.workspace)/android
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: android
+        path: $(github.workspace)/android
+
+    - name: Install App Center CLI
+      run: npm install -g appcenter-cli
+
+    - name: Deploy to App Center
+      run: appcenter distribute release --file $(github.workspace)/android/*.apk --app "your-app-slug" --group "Collaborators" --release-notes "Release notes for this version"
+      env:
+        APPCENTER_ACCESS_TOKEN: ${{ secrets.APPCENTER_ACCESS_TOKEN }}

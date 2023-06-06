@@ -1,0 +1,47 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: 'macOS-latest'
+  demands: xcode
+
+steps:
+- task: UseDotNet@2
+  displayName: 'Install .NET sdk'
+  inputs:
+    packageType: sdk
+    version: 7.0.200
+    installationPath: $(Agent.ToolsDirectory)/dotnet
+
+- task: CmdLine@2
+  displayName: 'Install Maui Workload'
+  inputs:
+    script: 'dotnet workload install maui'
+- task: NuGetToolInstaller@1
+  displayName: 'Update NuGet'
+  inputs:
+    checkLatest: true
+- task: NuGetCommand@2
+  inputs:
+      restoreSolution: '**/*.sln'
+
+- task: XamarinAndroid@1
+  inputs:
+    projectFile: '**/*droid*.csproj'
+    outputDirectory: '$(Build.ArtifactStagingDirectory)/android'
+    configuration: 'Release'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/android'
+    ArtifactName: 'android'
+
+- task: AppCenterDistribute@3
+  inputs:
+    serverEndpoint: 'TestMobileAppCenter'
+    appSlug: 'rafael.gomez-arkanosoft.com/Template-Maui-android'
+    appFile: '$(Build.ArtifactStagingDirectory)/android/*.apk'
+    releaseNotesOption: 'input'
+    releaseNotesInput: 'Release notes for this version'

@@ -1,0 +1,39 @@
+﻿trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '6.x'
+    installationPath: $(Agent.ToolsDirectory)/dotnet
+
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: 'path/to/your/solution.sln'
+
+- task: XamarinAndroid@1
+  inputs:
+    projectFile: 'path/to/your/android.csproj'
+    outputDirectory: '$(Build.ArtifactStagingDirectory)/android'
+    configuration: 'Release'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/android'
+    ArtifactName: 'android'
+
+- task: AppCenterDistribute@3
+  inputs:
+    serverEndpoint: 'your-app-center-service-connection'
+    appSlug: 'your-app-slug'
+    appFile: '$(Build.ArtifactStagingDirectory)/android/*.apk'
+    releaseNotesOption: 'input'
+    releaseNotesInput: 'Release notes for this version'

@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MobileTemplate.DataAccess</name>
+    </assembly>
+    <members>
+        <member name="T:MobileTemplate.DataAccess.DatabaseContext">
+            <summary>
+            SQLlite db context
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.DataAccess.DatabaseContext.#ctor">
+            <summary>   |
+            Initializes sqlite
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.DataAccess.DatabaseContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <summary>
+            Configure the database
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.DataAccess.DataService">
+            <summary>
+            Data access service
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.DataAccess.DataService.#ctor">
+            <summary>
+            Initialization
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.DataAccess.DataService.MustSynchronizeAsync">
+            <inheritdoc/>
+        </member>
+        <member name="M:MobileTemplate.DataAccess.DataService.SaveItemsAsync``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MobileTemplate.DataAccess.DataService.InsertOrUpdateItemsAsync``1(``0)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MobileTemplate.DataAccess.DataService.DeleteItemAsync``1(``0)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MobileTemplate.DataAccess.DataService.LoadItemsAsync">
+            <inheritdoc/>
+        </member>
+        <member name="T:MobileTemplate.DataAccess.SynchronizationService">
+            <summary>
+            Synchronization service interface
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.DataAccess.SynchronizationService.#ctor(MobileTemplate.Common.Interfaces.IHttpService,MobileTemplate.Common.Interfaces.IDataService)">
+            <summary>
+            Initialization
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.DataAccess.SynchronizationService.StartSynchronization(System.Action{System.String,System.Int32,System.Exception})">
+            <summary>
+            Starts the synchronization process
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MobileTemplate.DataAccess.SynchronizationService.GetSynchronizationItems">
+            <inhertidoc/>
+        </member>
+        <member name="M:MobileTemplate.DataAccess.SynchronizationService.RetrySynchronization(System.Action{System.String,System.Int32,System.Exception},System.Collections.Generic.List{MobileTemplate.Models.SynchronizationItem})">
+            <summary>
+            Retry the synchronization process
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MobileTemplate.DataAccess.SynchronizationService.FinishSynchronizationAsync">
+            <inheritdoc/>    
+        </member>
+    </members>
+</doc>

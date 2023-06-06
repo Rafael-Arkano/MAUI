@@ -1,0 +1,427 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MobileTemplate</name>
+    </assembly>
+    <members>
+        <member name="M:MobileTemplate.App.#ctor">
+            <summary>
+            Main app
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.AppShell.#ctor">
+            <summary>
+            App shell
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.Extensions.LocalizeExtension">
+            <summary>
+            MarkUp extension to load localization text from resx files
+            </summary>
+        </member>
+        <member name="P:MobileTemplate.Extensions.LocalizeExtension.Key">
+            <summary>
+            Key to search
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Extensions.LocalizeExtension.#ctor">
+            <summary>
+            Loads the extension
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Extensions.LocalizeExtension.ProvideValue(System.IServiceProvider)">
+            <summary>
+            Returns a value for a given keu
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.Helpers.ServiceHelper">
+            <summary>
+            Service helper compiled by platform
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.MauiProgram">
+            <summary>
+            MAUI entry point 
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.MauiProgram.CreateMauiApp">
+            <summary>
+            Creates the app.
+            Declares the font, depedenc
+            y injection components
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MobileTemplate.Pages.EntryFormPage">
+            <summary>
+            Entry form UI
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Pages.EntryFormPage.#ctor(MobileTemplate.ViewModels.EntryFormViewModel)">
+            <summary>
+            Receives the depedencies by DI
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.Pages.HomePage">
+            <summary>
+            Home UI
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Pages.HomePage.#ctor(MobileTemplate.ViewModels.HomeViewModel)">
+            <summary>
+            Receives the depedencies by DI
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.Pages.ItemCollectionPage">
+            <summary>
+            Entry form UI
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Pages.ItemCollectionPage.#ctor(MobileTemplate.ViewModels.ItemCollectionViewModel)">
+            <summary>
+            Receives the depedencies by DI
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.Pages.ItemDetailPage">
+            <summary>
+            Entry form UI
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Pages.ItemDetailPage.#ctor(MobileTemplate.ViewModels.ItemDetailViewModel)">
+            <summary>
+            Receives the depedencies by DI
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.Pages.LoginPage">
+            <summary>
+            Login UI
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Pages.LoginPage.#ctor(MobileTemplate.ViewModels.LoginViewModel)">
+            <summary>
+            Receives the depedencies by DI
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.Pages.SettingsPage">
+            <summary>
+            Settings UI
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Pages.SettingsPage.#ctor(MobileTemplate.ViewModels.SettingsViewModel)">
+            <summary>
+            Receives the depedencies by DI
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.Pages.SynchronizationPage">
+            <summary>
+            Synchronization UI
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Pages.SynchronizationPage.#ctor(MobileTemplate.ViewModels.SynchronizationViewModel)">
+            <summary>
+            Receives the depedencies by DI
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.Resources.Strings.Texts">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:MobileTemplate.Resources.Strings.Texts.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:MobileTemplate.Resources.Strings.Texts.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:MobileTemplate.Resources.Strings.Texts.AppTitle">
+            <summary>
+              Looks up a localized string similar to Mobile Template.
+            </summary>
+        </member>
+        <member name="P:MobileTemplate.Resources.Strings.Texts.Error">
+            <summary>
+              Looks up a localized string similar to Error.
+            </summary>
+        </member>
+        <member name="P:MobileTemplate.Resources.Strings.Texts.Login">
+            <summary>
+              Looks up a localized string similar to Iniciar sesión.
+            </summary>
+        </member>
+        <member name="P:MobileTemplate.Resources.Strings.Texts.LoginWithActiveDirectory">
+            <summary>
+              Looks up a localized string similar to Iniciar sesión con Active Directory.
+            </summary>
+        </member>
+        <member name="P:MobileTemplate.Resources.Strings.Texts.Password">
+            <summary>
+              Looks up a localized string similar to Contraseña.
+            </summary>
+        </member>
+        <member name="P:MobileTemplate.Resources.Strings.Texts.Username">
+            <summary>
+              Looks up a localized string similar to Usuario.
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.ViewModels.EntryFormViewModel">
+            <summary>
+            Sample entry form
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.ViewModels.EntryFormViewModel.#ctor(System.IServiceProvider)">
+            <summary>
+            Gets by DI the required services
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.ViewModels.HomeViewModel">
+            <summary>
+            Home logic
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.ViewModels.HomeViewModel.#ctor(System.IServiceProvider)">
+            <summary>
+            Gets by DI the required services
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.ViewModels.ItemCollectionViewModel">
+            <summary>
+            Sample viewmodel to show a collection of items
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.ViewModels.ItemCollectionViewModel.#ctor(System.IServiceProvider)">
+            <summary>
+            Gets by DI the required services
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.ViewModels.ItemDetailViewModel">
+            <summary>
+            Logic to show info from an item selected
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.ViewModels.ItemDetailViewModel.#ctor(System.IServiceProvider)">
+            <summary>
+            Gets by DI the required services
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.ViewModels.LoginViewModel">
+            <summary>
+            Simple username / password login logic
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.ViewModels.LoginViewModel.#ctor(System.IServiceProvider)">
+            <summary>
+            Gets by DI the required services
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.ViewModels.LoginViewModel.Login">
+            <summary>
+            DB login
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.ViewModels.LoginViewModel.LoginWithActiveDirectory">
+            <summary>
+            Login with active directory
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.ViewModels.LoginViewModel.AreCredentialComplete">
+            <summary>
+            Validates if the user submitted the credentials
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MobileTemplate.ViewModels.LoginViewModel.OnAppearing">
+            <summary>
+            Login when appears
+            </summary>
+        </member>
+        <member name="P:MobileTemplate.ViewModels.LoginViewModel.Username">
+            <inheritdoc cref="F:MobileTemplate.ViewModels.LoginViewModel.username"/>
+        </member>
+        <member name="P:MobileTemplate.ViewModels.LoginViewModel.Password">
+            <inheritdoc cref="F:MobileTemplate.ViewModels.LoginViewModel.password"/>
+        </member>
+        <member name="F:MobileTemplate.ViewModels.LoginViewModel.loginCommand">
+            <summary>The backing field for <see cref="P:MobileTemplate.ViewModels.LoginViewModel.LoginCommand"/>.</summary>
+        </member>
+        <member name="P:MobileTemplate.ViewModels.LoginViewModel.LoginCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:MobileTemplate.ViewModels.LoginViewModel.Login"/>.</summary>
+        </member>
+        <member name="F:MobileTemplate.ViewModels.LoginViewModel.loginWithActiveDirectoryCommand">
+            <summary>The backing field for <see cref="P:MobileTemplate.ViewModels.LoginViewModel.LoginWithActiveDirectoryCommand"/>.</summary>
+        </member>
+        <member name="P:MobileTemplate.ViewModels.LoginViewModel.LoginWithActiveDirectoryCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:MobileTemplate.ViewModels.LoginViewModel.LoginWithActiveDirectory"/>.</summary>
+        </member>
+        <member name="T:MobileTemplate.ViewModels.SettingsViewModel">
+            <summary>
+            Synchronization UI logic
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.ViewModels.SettingsViewModel.#ctor(System.IServiceProvider)">
+            <summary>
+            Gets by DI the required services
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.ViewModels.SynchronizationViewModel">
+            <summary>
+            Settings UI logic
+            </summary>
+        </member>
+        <member name="F:MobileTemplate.ViewModels.SynchronizationViewModel.progress">
+            <summary>
+            Current synchronization process
+            </summary>
+        </member>
+        <member name="F:MobileTemplate.ViewModels.SynchronizationViewModel.synchronizationTime">
+            <summary>
+            Total sync time
+            </summary>
+        </member>
+        <member name="P:MobileTemplate.ViewModels.SynchronizationViewModel.SynchronizationItems">
+            <summary>
+            Synchronization items
+            </summary>
+        </member>
+        <member name="F:MobileTemplate.ViewModels.SynchronizationViewModel.synchronizationCompleted">
+            <summary>
+            True if completed
+            </summary>
+        </member>
+        <member name="F:MobileTemplate.ViewModels.SynchronizationViewModel.finishingSynchronization">
+            <summary>
+            True if completed
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.ViewModels.SynchronizationViewModel.#ctor(System.IServiceProvider)">
+            <summary>
+            Gets by DI the required services
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.ViewModels.SynchronizationViewModel.Initialize">
+            <summary>
+            Initializes data
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.ViewModels.SynchronizationViewModel.UpdateProcess(System.String,System.Int32,System.Exception)">
+            <summary>
+            Updates the progress ui
+            </summary>
+        </member>
+        <member name="P:MobileTemplate.ViewModels.SynchronizationViewModel.Progress">
+            <inheritdoc cref="F:MobileTemplate.ViewModels.SynchronizationViewModel.progress"/>
+        </member>
+        <member name="P:MobileTemplate.ViewModels.SynchronizationViewModel.SynchronizationTime">
+            <inheritdoc cref="F:MobileTemplate.ViewModels.SynchronizationViewModel.synchronizationTime"/>
+        </member>
+        <member name="P:MobileTemplate.ViewModels.SynchronizationViewModel.SynchronizationCompleted">
+            <inheritdoc cref="F:MobileTemplate.ViewModels.SynchronizationViewModel.synchronizationCompleted"/>
+        </member>
+        <member name="P:MobileTemplate.ViewModels.SynchronizationViewModel.FinishingSynchronization">
+            <inheritdoc cref="F:MobileTemplate.ViewModels.SynchronizationViewModel.finishingSynchronization"/>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Button.TextColorTo(Microsoft.Maui.Controls.Button,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_DatePicker.TextColorTo(Microsoft.Maui.Controls.DatePicker,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Editor.TextColorTo(Microsoft.Maui.Controls.Editor,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Entry.TextColorTo(Microsoft.Maui.Controls.Entry,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Label.TextColorTo(Microsoft.Maui.Controls.Label,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Picker.TextColorTo(Microsoft.Maui.Controls.Picker,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_RadioButton.TextColorTo(Microsoft.Maui.Controls.RadioButton,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_SearchBar.TextColorTo(Microsoft.Maui.Controls.SearchBar,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_TimePicker.TextColorTo(Microsoft.Maui.Controls.TimePicker,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+    </members>
+</doc>

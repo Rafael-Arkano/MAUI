@@ -1,0 +1,432 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MobileTemplate.Common</name>
+    </assembly>
+    <members>
+        <member name="T:MobileTemplate.Common.Constants">
+            <summary>
+            Constants used for in the app
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.Common.MyEnum">
+            <summary>
+            A sample enum
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.Common.Extensions.JObjectExtensions">
+            <summary>
+            JObject extenstion methods
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.Extensions.JObjectExtensions.GetValue``1(Newtonsoft.Json.Linq.JObject,System.String)">
+            <summary>
+            Extension method to parse and get a value from a JObject
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.Extensions.JObjectExtensions.ParseArray(Newtonsoft.Json.Linq.JObject,System.String)">
+            <summary>
+            Parse a Json object and returns an array of child items
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.Common.Extensions.MauiAppBuilderExtensions">
+            <summary>
+            MauiAppBuilder extension to register types
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.Extensions.MauiAppBuilderExtensions.RegisterViewModelsAndServices(Microsoft.Maui.Hosting.MauiAppBuilder)">
+            <summary>
+            Register all ViewModels and pages as transient
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.Extensions.MauiAppBuilderExtensions.RegisterAssemblyViewModelsAndServices(System.Reflection.Assembly,Microsoft.Maui.Hosting.MauiAppBuilder)">
+            <summary>
+            For a given assembly register the viewmodel and services
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.Common.Interfaces.IAuthenticationService">
+            <summary>
+            Interface for authenticating the user
+            </summary>
+        </member>
+        <member name="P:MobileTemplate.Common.Interfaces.IAuthenticationService.User">
+            <summary>
+            Current user details
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.Interfaces.IAuthenticationService.AuthenticateAsync(System.String,System.String)">
+            <summary>
+            Authenticate the user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MobileTemplate.Common.Interfaces.IAuthenticationService.LoadCredentialsAsync">
+            <summary>
+            Load the crendetials from cache (if available)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MobileTemplate.Common.Interfaces.IAuthenticationService.LogOutAsync">
+            <summary>
+            Logout the user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MobileTemplate.Common.Interfaces.IAuthenticationService.IsAuthenticated">
+            <summary>
+            Return if the user is authenticated
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MobileTemplate.Common.Interfaces.IDataService">
+            <summary>
+            Data access service interface
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.Interfaces.IDataService.MustSynchronizeAsync">
+            <summary>
+            Checks if the synchronization is mandatory
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MobileTemplate.Common.Interfaces.IDataService.SaveItemsAsync``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Save a collections of items
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.Interfaces.IDataService.InsertOrUpdateItemsAsync``1(``0)">
+            <summary>
+            Save a collections of items 
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.Interfaces.IDataService.DeleteItemAsync``1(``0)">
+            <summary>
+            Remove a item
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.Interfaces.IDataService.LoadItemsAsync">
+            <summary>
+            Loads items from the local storage
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.Common.Interfaces.IHttpService">
+            <summary>
+            Http access service interface
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.Interfaces.IHttpService.PostAsync``1(System.Object,System.String,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            Executes a post method 
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.Interfaces.IHttpService.GetJsonObjectAsync(System.String,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            Executes a GET method to the service
+            </summary>   
+        </member>
+        <member name="M:MobileTemplate.Common.Interfaces.IHttpService.GetJsonArrayAsync(System.String,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            Executes a GET method to the service
+            </summary>   
+        </member>
+        <member name="T:MobileTemplate.Common.Interfaces.INavigationService">
+            <summary>
+            ViewModel based navigation
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.Interfaces.INavigationService.Navigate``1(System.Threading.CancellationToken)">
+            <summary>
+            Navigates to a ViewModel
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.Interfaces.INavigationService.Close``1(``0)">
+            <summary>
+            Closes the viewmodel
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.Common.Interfaces.INotificationService">
+            <summary>
+            Notification service.
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.Interfaces.INotificationService.NotifyAsync(System.String,System.String,System.String)">
+            <summary>
+            Shows a pop up to the user (Xamarin.Forms DisplayAlert)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MobileTemplate.Common.Interfaces.INotificationService.NotifyAsync(System.String,System.String,System.String,System.Action{System.Boolean})">
+            <summary>
+            Shows a pop up to the user with confirmation of receipt (Xamarin.Forms DisplayAlert)
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.Interfaces.INotificationService.NotifyErrorAsync(System.String,System.String)">
+            <summary>
+             Shows a pop up to the user with an error message (the message is not translated)
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.Interfaces.INotificationService.DisplayPrompAsync(System.String,System.String,System.Action{System.String})">
+            <summary>
+             To display an action sheet to the user with cancelation (Xamarin.Forms DisplayAlert)
+            </summary>   
+        </member>
+        <member name="T:MobileTemplate.Common.Interfaces.IPlatformService">
+            <summary>
+            Interface for platform especific functionality
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.Interfaces.IPlatformService.ShowNotificationAsync(System.String)">
+            <summary>
+            Shows a native notification
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.Common.Interfaces.ISynchronizationService">
+            <summary>
+            Synchronization service interface
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.Interfaces.ISynchronizationService.StartSynchronization(System.Action{System.String,System.Int32,System.Exception})">
+            <summary>
+            Starts the synchronization process
+            Receives an action to report process (message, amount of elements, % progress)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MobileTemplate.Common.Interfaces.ISynchronizationService.FinishSynchronizationAsync">
+            <summary>
+            Finish the process
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.Interfaces.ISynchronizationService.RetrySynchronization(System.Action{System.String,System.Int32,System.Exception},System.Collections.Generic.List{MobileTemplate.Models.SynchronizationItem})">
+            <summary>
+            Retry the synchronization process
+            Receives an action to report process (message, amount of elements, % progress)
+            Receive a list of items to synchronize
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MobileTemplate.Common.Interfaces.ISynchronizationService.GetSynchronizationItems">
+            <summary>
+            Returns the itemssynchronize
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.Common.Pages.BaseContentPage`1">
+            <summary>
+            Base content page, used to tie the ViewModel
+            with the page life cycle
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:MobileTemplate.Common.Pages.BaseContentPage`1.ViewModel">
+            <summary>
+            ViewModel
+            </summary>
+        </member>
+        <member name="P:MobileTemplate.Common.Pages.BaseContentPage`1.ViewAppeared">
+            <summary>
+            ViewModel
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.Pages.BaseContentPage`1.#ctor(`0,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="viewModel"></param>
+        </member>
+        <member name="M:MobileTemplate.Common.Pages.BaseContentPage`1.SetupPageEvents">
+            <summary>
+            Binds the page event to the viewmodel
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.Common.Services.DbAuthenticationService">
+            <summary>
+            Basic authentication service using the local database
+            </summary>
+        </member>
+        <member name="P:MobileTemplate.Common.Services.DbAuthenticationService.User">
+            <inheeritdoc/>
+        </member>
+        <member name="M:MobileTemplate.Common.Services.DbAuthenticationService.AuthenticateAsync(System.String,System.String)">
+            <inheeritdoc/>
+        </member>
+        <member name="M:MobileTemplate.Common.Services.DbAuthenticationService.LoadCredentialsAsync">
+            <inheeritdoc/>
+        </member>
+        <member name="M:MobileTemplate.Common.Services.DbAuthenticationService.LogOutAsync">
+            <inheeritdoc/>
+        </member>
+        <member name="M:MobileTemplate.Common.Services.DbAuthenticationService.IsAuthenticated">
+            <inheeritdoc/>
+        </member>
+        <member name="T:MobileTemplate.Common.Services.HttpService">
+            <summary>
+            Data access service
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.Services.HttpService.#ctor">
+            <summary>
+            Initialization
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.Services.HttpService.CreateHttpClient">
+            <summary>
+            Creates and configures the HTTP client
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.Services.HttpService.PostAsync``1(System.Object,System.String,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            Post data 
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.Services.HttpService.GetJsonObjectAsync(System.String,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            Executes a GET method to the service
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.Services.HttpService.GetJsonArrayAsync(System.String,Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            Executes a GET method to the service
+            </summary>
+        </member>
+        <member name="T:MobileTemplate.Common.Services.NavigationService">
+            <inheritdoc/>
+        </member>
+        <member name="M:MobileTemplate.Common.Services.NavigationService.Navigate``1(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:MobileTemplate.Common.Services.NavigationService.Close``1(``0)">
+            <inheritdoc/>
+        </member>
+        <member name="T:MobileTemplate.Common.Services.NotificationService">
+            <inheritdoc />
+        </member>
+        <member name="M:MobileTemplate.Common.Services.NotificationService.#ctor(System.IServiceProvider)">
+            <summary>
+            Initializes the service
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.Services.NotificationService.NotifyAsync(System.String,System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:MobileTemplate.Common.Services.NotificationService.NotifyErrorAsync(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:MobileTemplate.Common.Services.NotificationService.NotifyAsync(System.String,System.String,System.String,System.Action{System.Boolean})">
+            <inheritdoc />
+        </member>
+        <member name="M:MobileTemplate.Common.Services.NotificationService.DisplayPrompAsync(System.String,System.String,System.Action{System.String})">
+            <inheritdoc />
+        </member>
+        <member name="M:MobileTemplate.Common.Services.NotificationService.GetText(System.String)">
+            <summary>
+            Helper method for getting a localized text
+            </summary>
+            <param name="text">Text to get</param>
+            <returns>Localized text</returns>
+        </member>
+        <member name="T:MobileTemplate.Common.ViewModels.BaseViewModel">
+            <summary>
+            Base class for all our ViewModels
+            </summary>
+        </member>
+        <member name="P:MobileTemplate.Common.ViewModels.BaseViewModel.IsEnabled">
+            <summary>
+            Gets if the ViewModel is enabled.
+            It's the inverse of IsBusy for easier binding. (If IsBusy = true them IsEnabled = false)
+            </summary>
+        </member>
+        <member name="P:MobileTemplate.Common.ViewModels.BaseViewModel.DataService">
+            <summary>
+            Authentication service
+            </summary>
+        </member>
+        <member name="P:MobileTemplate.Common.ViewModels.BaseViewModel.NotificationService">
+            <summary>
+            Notification service
+            </summary>
+        </member>
+        <member name="P:MobileTemplate.Common.ViewModels.BaseViewModel.NavigationService">
+            <summary>
+            Notification service
+            </summary>
+        </member>
+        <member name="P:MobileTemplate.Common.ViewModels.BaseViewModel.AuthenticationService">
+            <summary>
+            Authentication service
+            </summary>
+        </member>
+        <member name="P:MobileTemplate.Common.ViewModels.BaseViewModel.LocalizationService">
+            <summary>
+            Localization service
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.ViewModels.BaseViewModel.#ctor(System.IServiceProvider)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.ViewModels.BaseViewModel.GetText(System.String)">
+            <summary>
+            Helper method for getting a localized text
+            </summary>
+            <param name="text">Text to get</param>
+            <returns>Localized text</returns>
+        </member>
+        <member name="M:MobileTemplate.Common.ViewModels.BaseViewModel.OnMainDisplayInfoChanged(System.Object,Microsoft.Maui.Devices.DisplayInfoChangedEventArgs)">
+            <summary>
+            Handler to DeviceDisplay.MainDisplayInfoChanged event
+            that is triggered whenever any screen metrics changes
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.ViewModels.BaseViewModel.OnOrientationChangedAsync">
+            <summary>
+            Called when the orientation changes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MobileTemplate.Common.ViewModels.BaseViewModel.CheckIfTabletIsLandscape">
+            <summary>
+            Returns if the devices is tablet and landscape
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.ViewModels.BaseViewModel.ShowErrorErrorMessageAsyc(System.Exception)">
+            <summary>
+            Show an error message and logs an exception message
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.ViewModels.BaseViewModel.LogExceptionAsync(System.Exception)">
+            <summary>
+            Logs an exception message
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.ViewModels.BaseViewModel.Prepare">
+            <summary>
+            Setups the ViewModel
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.ViewModels.BaseViewModel.Initialize">
+            <summary>
+            Background data initialization
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.ViewModels.BaseViewModel.OnAppearing">
+            <summary>
+            Called when the view starts appearing
+            </summary>
+        </member>
+        <member name="M:MobileTemplate.Common.ViewModels.BaseViewModel.OnDisappearing">
+            <summary>
+            Called when the view starts disappearing
+            </summary>
+        </member>
+        <member name="P:MobileTemplate.Common.ViewModels.BaseViewModel.IsBusy">
+            <inheritdoc cref="F:MobileTemplate.Common.ViewModels.BaseViewModel.isBusy"/>
+        </member>
+        <member name="P:MobileTemplate.Common.ViewModels.BaseViewModel.Title">
+            <inheritdoc cref="F:MobileTemplate.Common.ViewModels.BaseViewModel.title"/>
+        </member>
+        <member name="P:MobileTemplate.Common.ViewModels.BaseViewModel.Version">
+            <inheritdoc cref="F:MobileTemplate.Common.ViewModels.BaseViewModel.version"/>
+        </member>
+    </members>
+</doc>
