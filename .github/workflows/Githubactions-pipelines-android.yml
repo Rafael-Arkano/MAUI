@@ -13,6 +13,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         
+      - uses: actions/checkout@v3
+      - name: Setup Keystore File
+        run: |
+         echo "${{ secrets.KEYSTORE_FILE }}" > template.keystore.asc
+          gpg -d --passphrase "${{ secrets.KEYSTORE_PASSWORD_GPG }}" --batch template.keystore.asc > template.keystore
+        
       - name: Setup .NET
         uses: actions/setup-dotnet@v1
         with:
@@ -21,28 +27,12 @@ jobs:
       - name: Install MAUI workload
         run: dotnet workload install maui
 
+      - name: Restore dependencies
+        run: dotnet restore
+      
       - name: Build and Publish
-        run: dotnet publish -c Release -f net7.0-android33.0 -o ./publish
-
-      - name: Install JDK
-        uses: actions/setup-java@v2
-        with:
-          java-version: '17'
-
-      - name: Set up JDK
-        run: |
-          echo "JAVA_HOME=$(whereis java)" >> $GITHUB_ENV
-
-      - name: Sign APK
-        run: |
-          sudo apt-get install -y zip
-          mkdir -p ~/.android
-          echo ${{ secretsTEMPLATEKEYSTORE}} | base64 --decode > ~/.android/template.keystore
-          echo "$KEYSTORE_PROPERTIES_BASE64" | base64 --decode > keystore.properties
-          cd ./publish
-          zipalign -v -p 4 app.apk app-aligned.apk
-          apksigner sign --ks ~/.android/template.keystore --ks-pass env:KEYSTORE_PASSWORD --key-pass env:KEY_PASSWORD --out app-signed.apk app-aligned.apk
-          
+        run: dotnet publish -c Release -f net7.0-android33.0 /p:AndroidSigningKeyStore=template.keystore /p:AndroidSigningKeyAlias=template /p:AndroidSigningKeyPass="${{ secrets.KEYSTORE_PASSWORD }}" /p:AndroidSigningStorePass="${{ secrets.KEYSTORE_PASSWORD_ALIAS }}" --no-restore
+        
       - name: Install App Center CLI
         run: npm install -g appcenter-cli
         
