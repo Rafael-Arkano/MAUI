@@ -11,9 +11,11 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-        
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
+      
+      - name: Setup Android signing
+#        run: (echo ${{ secrets.TEMPLATEKEYSTORE }} | base64 --decode) > ./GitHubActions.Android/keystore.jks
+      
       - name: Setup Keystore File
         run: |
          echo "${{ secrets.TEMPLATEKEYSTORE }}" > template.keystore
