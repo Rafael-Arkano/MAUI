@@ -12,14 +12,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      
-      - name: Setup Android signing
-        run: (echo ${{ secrets.TEMPLATEKEYSTORE }} | base64 --decode) > ./GitHubActions.Android/template.keystore.jks
-      
-      - name: Setup Keystore File
-        run: |
-         echo "${{ secrets.TEMPLATEKEYSTORE }}" > template.keystore
-          gpg -d --passphrase "${{ secrets.KEYSTORE_PASSWORD_GPG }}" --batch template.keystore > template.keystore
         
       - name: Setup .NET
         uses: actions/setup-dotnet@v1
