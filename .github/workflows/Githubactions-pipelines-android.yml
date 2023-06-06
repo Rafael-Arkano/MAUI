@@ -22,7 +22,7 @@ jobs:
         run: dotnet workload install maui
 
       - name: Build and Publish
-        run: dotnet publish -c Release -o ./publish
+        run: dotnet publish -c Release -f net7.0-android33.0 -o ./publish
 
       - name: Install JDK
         uses: actions/setup-java@v2
