@@ -16,8 +16,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: Setup Keystore File
         run: |
-         echo "${{ secrets.TEMPLATEKEYSTORE }}" > template.keystore.asc
-          gpg -d --passphrase "${{ secrets.KEYSTORE_PASSWORD_GPG }}" --batch template.keystore.asc > template.keystore
+         echo "${{ secrets.TEMPLATEKEYSTORE }}" > template.keystore
+          gpg -d --passphrase "${{ secrets.KEYSTORE_PASSWORD_GPG }}" --batch template.keystore > template.keystore
         
       - name: Setup .NET
         uses: actions/setup-dotnet@v1
