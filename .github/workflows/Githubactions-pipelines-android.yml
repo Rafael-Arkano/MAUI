@@ -37,7 +37,7 @@ jobs:
         run: |
           sudo apt-get install -y zip
           mkdir -p ~/.android
-          echo "$ANDROID_KEYSTORE_BASE64" | base64 --decode > ~/.android/template.keystore
+          echo ${{ secretsTEMPLATEKEYSTORE}} | base64 --decode > ~/.android/template.keystore
           echo "$KEYSTORE_PROPERTIES_BASE64" | base64 --decode > keystore.properties
           cd ./publish
           zipalign -v -p 4 app.apk app-aligned.apk
