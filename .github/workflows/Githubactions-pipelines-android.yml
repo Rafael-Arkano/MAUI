@@ -27,12 +27,29 @@ jobs:
       - name: Build and Publish
         run: dotnet publish -c Release -f net7.0-android33.0 /p:AndroidSigningKeyStore=template.keystore /p:AndroidSigningKeyAlias=template /p:AndroidSigningKeyPass="${{ secrets.KEYSTORE_PASSWORD }}" /p:AndroidSigningStorePass="${{ secrets.KEYSTORE_PASSWORD_ALIAS }}" --no-restore -o ./publish
         
+      - name: Install Homebrew
+        run: |
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+      - name: Install JDK
+        run: brew install openjdk@11
+
+      - name: Install Android SDK
+        run: brew install --cask android-sdk
+
+      - name: Configure Android SDK
+        run: echo 'export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"' >> $GITHUB_ENV
+        
       - name: Sign APK
         run: |
-          sudo apt-get install -y zip
           echo "${{ secrets.TEMPLATEKEYSTORE }}" | base64 --decode > ~/.android/template.keystore
+          brew install openjdk@11
+          export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
           cd ./publish
           zipalign -v -p 4 app.apk app-aligned.apk
+          export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
+          export JAVA_HOME="/usr/local/opt/openjdk@17"
+          export PATH="$ANDROID_SDK_ROOT/cmdline-tools/tools/bin:$PATH"
           apksigner sign --ks ~/.android/template.keystore --ks-pass pass:"template" --key-pass pass:"template" --out app-signed.apk
 
       - name: Install App Center CLI
