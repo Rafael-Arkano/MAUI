@@ -32,7 +32,7 @@ jobs:
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
       - name: Install JDK
-        run: brew install openjdk@11
+        run: brew install openjdk@17
 
       - name: Install Android SDK
         run: brew install --cask android-sdk
@@ -43,8 +43,8 @@ jobs:
       - name: Sign APK
         run: |
           echo "${{ secrets.TEMPLATEKEYSTORE }}" | base64 --decode > ~/.android/template.keystore
-          brew install openjdk@11
-          export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
+          brew install openjdk@17
+          export PATH="/usr/local/opt/openjdk@17/bin:$PATH"
           cd ./publish
           zipalign -v -p 4 app.apk app-aligned.apk
           export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
