@@ -46,11 +46,11 @@ jobs:
           brew install openjdk@17
           export PATH="/usr/local/opt/openjdk@17/bin:$PATH"
           cd ./publish
-          zipalign -v -p 4 com.companyname.mobiletemplate.apk com.companyname.mobiletemplate-aligned.apk
+          ./zipalign -v -p 4 com.companyname.mobiletemplate.apk com.companyname.mobiletemplate-aligned.apk
           export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
           export JAVA_HOME="/usr/local/opt/openjdk@17"
           export PATH="$ANDROID_SDK_ROOT/cmdline-tools/tools/bin:$PATH"
-          apksigner sign --ks ~/.android/template.keystore --ks-pass pass:"template" --key-pass pass:"template" --out app-signed.apk
+          apksigner sign --ks ~/.android/template.keystore --ks-pass pass:"template" --key-pass pass:"template" --out com.companyname.mobiletemplate-signed.apk
 
       - name: Install App Center CLI
         run: npm install -g appcenter-cli
