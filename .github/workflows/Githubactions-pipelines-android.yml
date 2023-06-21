@@ -46,7 +46,7 @@ jobs:
           brew install openjdk@17
           export PATH="/usr/local/opt/openjdk@17/bin:$PATH"
           cd ./publish
-          zipalign -v -p 4 app.apk app-aligned.apk
+          ./zipalign -v -p 4 app.apk app-aligned.apk
           export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
           export JAVA_HOME="/usr/local/opt/openjdk@17"
           export PATH="$ANDROID_SDK_ROOT/cmdline-tools/tools/bin:$PATH"
