@@ -27,31 +27,26 @@ jobs:
       - name: Build and Publish
         run: dotnet publish -c Release -f net7.0-android33.0 /p:AndroidSigningKeyStore=template.keystore /p:AndroidSigningKeyAlias=template /p:AndroidSigningKeyPass="${{ secrets.KEYSTORE_PASSWORD }}" /p:AndroidSigningStorePass="${{ secrets.KEYSTORE_PASSWORD_ALIAS }}" --no-restore -o ./publish
         
-      - name: Install Homebrew
-        run: |
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      - uses: r0adkll/sign-android-release@v1
+        name: Sign app APK
+        # ID used to access action output
+        id: sign_app
+        with:
+          releaseDirectory: app/build/outputs/apk/release
+          signingKeyBase64: ${{ secrets.KEYSTORE_FILE}}
+          alias: ${{ secrets.KEYSTORE_PASSWORD_ALIAS }}
+          keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEYSTORE_PASSWORD}}
+        env:
+          # override default build-tools version (29.0.3) -- optional
+          BUILD_TOOLS_VERSION: "30.0.2"
 
-      - name: Install JDK
-        run: brew install openjdk@17
-
-      - name: Install Android SDK
-        run: brew install --cask android-sdk
-
-      - name: Configure Android SDK
-        run: echo 'export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"' >> $GITHUB_ENV
+      # Example use of `signedReleaseFile` output -- not needed
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Signed app bundle
+          path: ${{steps.sign_app.outputs.signedReleaseFile}
         
-      - name: Sign APK
-        run: |
-          echo "${{ secrets.TEMPLATEKEYSTORE }}" | base64 --decode > ~/.android/template.keystore
-          brew install openjdk@17
-          export PATH="/usr/local/opt/openjdk@17/bin:$PATH"
-          cd ./publish
-          ./zipalign -v -p 4 com.companyname.mobiletemplate.apk com.companyname.mobiletemplate-aligned.apk
-          export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
-          export JAVA_HOME="/usr/local/opt/openjdk@17"
-          export PATH="$ANDROID_SDK_ROOT/cmdline-tools/tools/bin:$PATH"
-          apksigner sign --ks ~/.android/template.keystore --ks-pass pass:"template" --key-pass pass:"template" --out com.companyname.mobiletemplate-signed.apk
-
       - name: Install App Center CLI
         run: npm install -g appcenter-cli
         
