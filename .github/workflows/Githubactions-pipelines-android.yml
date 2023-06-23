@@ -32,7 +32,7 @@ jobs:
         # ID used to access action output
         id: sign_app
         with:
-          releaseDirectory: ../com.companyname.mobiletemplate.apk
+          releaseDirectory: ./publish/com.companyname.mobiletemplate-signed.apk
           signingKeyBase64: ${{ secrets.KEYSTORE_FILE}}
           alias: ${{ secrets.KEYSTORE_PASSWORD_ALIAS }}
           keyStorePassword: ${{ secrets.TEMPLATEKEYSTORE}}
