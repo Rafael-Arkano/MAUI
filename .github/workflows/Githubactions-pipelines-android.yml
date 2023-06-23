@@ -36,10 +36,6 @@ jobs:
           signingKeyBase64: ${{ secrets.KEYSTORE_FILE}}
           alias: ${{ secrets.KEYSTORE_PASSWORD_ALIAS }}
           keyStorePassword: ${{ secrets.TEMPLATEKEYSTORE}}
-          keyPassword: ${{ secrets.KEYSTORE_PASSWORD}}
-        env:
-          # override default build-tools version (29.0.3) -- optional
-          BUILD_TOOLS_VERSION: "30.0.2"
   
       - name: Install App Center CLI
         run: npm install -g appcenter-cli
