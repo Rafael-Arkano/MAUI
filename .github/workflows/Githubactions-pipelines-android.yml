@@ -35,7 +35,7 @@ jobs:
           releaseDirectory: ./publish
           signingKeyBase64: ${{ secrets.KEYSTORE_FILE}}
           alias: ${{ secrets.KEYSTORE_PASSWORD_ALIAS }}
-          keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
+          keyStorePassword: ${{ secrets.TEMPLATEKEYSTORE}}
           keyPassword: ${{ secrets.KEYSTORE_PASSWORD}}
         env:
           # override default build-tools version (29.0.3) -- optional
