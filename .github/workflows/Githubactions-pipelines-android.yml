@@ -32,10 +32,10 @@ jobs:
         # ID used to access action output
         id: sign_app
         with:
-          releaseDirectory: ./publish/*.apk
-          signingKeyBase64: ${{ secrets.KEYSTORE_FILE}}
+          releaseDirectory: ./publish
+          signingKeyBase64: ${{ secrets.KEYSTORE_FILE }}
           alias: ${{ secrets.KEYSTORE_PASSWORD_ALIAS }}
-          keyStorePassword: ${{ secrets.TEMPLATEKEYSTORE}}
+          keyStorePassword: ${{ secrets.TEMPLATEKEYSTORE }}
   
       - name: Install App Center CLI
         run: npm install -g appcenter-cli
