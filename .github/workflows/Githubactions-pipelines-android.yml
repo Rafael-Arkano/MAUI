@@ -34,12 +34,15 @@ jobs:
       - name: Build and Publish
         run: dotnet publish -c Release -f net7.0-android33.0 --no-restore -o ./publish
         
+      - name: Generate Release APK
+        run: ./gradlew assembleRelease
+        
       - uses: r0adkll/sign-android-release@v1
         name: Sign app APK
         # ID used to access action output
         id: sign_app
         with:
-          releaseDirectory: /home/runner/work/<repo name>/<repo name>/android/app/release
+          releaseDirectory: app/build/outputs/apk/release
           signingKeyBase64: ${{ secrets.KEYSTORE_FILE }}
           alias: ${{ secrets.KEYSTORE_PASSWORD_ALIAS }}
           keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
