@@ -39,7 +39,7 @@ jobs:
         # ID used to access action output
         id: sign_app
         with:
-          releaseDirectory: ./publish/bin/Release/net7.0-android33.0/*Signed.apk
+          releaseDirectory: ./publish
           signingKeyBase64: ${{ secrets.KEYSTORE_FILE }}
           alias: ${{ secrets.KEYSTORE_PASSWORD_ALIAS }}
           keyStorePassword: ${{ secrets.TEMPLATEKEYSTORE }}
