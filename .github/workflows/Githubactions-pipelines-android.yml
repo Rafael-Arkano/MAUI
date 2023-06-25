@@ -35,7 +35,7 @@ jobs:
         run: dotnet publish -c Release -f net7.0-android33.0 --no-restore -o ./publish
         
       - name: Generate Release APK
-        run: ./gradlew assembleRelease
+        run: ./publish assembleRelease
         
       - uses: r0adkll/sign-android-release@v1
         name: Sign app APK
