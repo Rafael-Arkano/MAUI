@@ -33,7 +33,7 @@ jobs:
         id: sign_app
         with:
           releaseDirectory: ./publish
-          signingKeyBase64: ${{ secrets.KEYSTORE_FILE }}
+          signingKeyBase64: ${{ secrets.TEMPLATE }}
           alias: ${{ secrets.KEYSTORE_PASSWORD_ALIAS }}
           keyStorePassword: ${{ secrets.TEMPLATEKEYSTORE }}
   
