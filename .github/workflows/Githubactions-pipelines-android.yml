@@ -39,10 +39,10 @@ jobs:
         # ID used to access action output
         id: sign_app
         with:
-          releaseDirectory: ./publish
+          releaseDirectory: /home/runner/work/<repo name>/<repo name>/android/app/release
           signingKeyBase64: ${{ secrets.KEYSTORE_FILE }}
           alias: ${{ secrets.KEYSTORE_PASSWORD_ALIAS }}
-          keyStorePassword: ${{ secrets.TEMPLATEKEYSTORE }}
+          keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
   
       - name: Install App Center CLI
         run: npm install -g appcenter-cli
