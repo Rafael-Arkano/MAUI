@@ -32,14 +32,14 @@ jobs:
         run: dotnet restore
       
       - name: Build and Publish
-        run: dotnet publish -c Release -f net7.0-android33.0 --no-restore -o ./publish
+        run: dotnet publish -c Release -f net7.0-android33.0 --no-restore
         
       - uses: r0adkll/sign-android-release@v1
         name: Sign app APK
         # ID used to access action output
         id: sign_app
         with:
-          releaseDirectory: ./publish/*Signed.apk
+          releaseDirectory: ./publish/bin/Release/net7.0-android33.0/*Signed.a*
           signingKeyBase64: ${{ secrets.KEYSTORE_FILE }}
           alias: ${{ secrets.KEYSTORE_PASSWORD_ALIAS }}
           keyStorePassword: ${{ secrets.TEMPLATEKEYSTORE }}
