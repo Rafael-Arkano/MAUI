@@ -31,7 +31,7 @@ jobs:
         run: dotnet restore
       
       - name: Build and Publish
-        run: dotnet publish -c Release -f net7.0-android33.0 /p:AndroidKeyStore=true /p:AndroidSigningKeyStore=${{secrets.TEMPLATEKEYSTORE}} /p:AndroidSigningKeyAlias=${{ secrets.KEYSTORE_PASSWORD_ALIAS }} /p:AndroidSigningKeyPass=${{ secrets.KEYSTORE_PASSWORD }} /p:AndroidSigningStorePass=${{ secrets.KEYSTORE_PASSWORD }} --no-restore
+        run: dotnet publish -c Release -f net7.0-android33.0 /p:AndroidKeyStore=false /p:AndroidSigningKeyStore=${{secrets.TEMPLATEKEYSTORE}} /p:AndroidSigningKeyAlias=${{ secrets.KEYSTORE_PASSWORD_ALIAS }} /p:AndroidSigningKeyPass=${{ secrets.KEYSTORE_PASSWORD }} /p:AndroidSigningStorePass=${{ secrets.KEYSTORE_PASSWORD }} --no-restore
 
       - name: Install App Center CLI
         run: npm install -g appcenter-cli
